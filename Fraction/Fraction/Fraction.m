@@ -28,10 +28,13 @@
     numerator=n;
     denominator=d;
 }
--(void)add:(Fraction *)f
+-(Fraction *)add:(Fraction *)f
 {
-    numerator=numerator*f.denominator+denominator*f.numerator;
-    denominator=denominator*f.denominator;
+    Fraction *result=[[Fraction alloc]init];
+    result.numerator=numerator*f.denominator+denominator*f.numerator;
+    result.denominator=denominator*f.denominator;
+    [result reduce];
+    return result;
 }
 -(void) reduce
 {
